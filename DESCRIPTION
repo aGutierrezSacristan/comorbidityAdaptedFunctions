@@ -1,0 +1,23 @@
+Package: comorbidityAdaptedFunctions
+Type: Package
+Title: comorbidity adapted functions
+Version: 0.1.0
+Author: person("Alba", "Gutierrez-Sacristan", "alba_gutierrez@hms.harvard.edu", role = c("aut", "cre"))
+Maintainer: Alba Gutierrez-Sacristan <alba_gutierrez@hms.harvard.edu>
+Description:  Package to analyze and visualize comorbidities and disease prevalence.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    parallel
+Imports:
+    comoRbidity,
+    ggplot2,
+    plotrix,
+    plyr,
+    reshape,
+    RCurl,
+    gtools,
+    shiny
+NeedsCompilation: no
+RoxygenNote: 6.0.1
