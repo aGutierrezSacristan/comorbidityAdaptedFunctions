@@ -76,7 +76,7 @@ ageFirstDiagnosis <- function( input, diseaseList, sex, cutOff = 5, visualizatio
     if( visualization == TRUE){
 
       ord <- as.factor( 0 : 18 )
-      selection$Var1 <- factor( selection$Var1, levels= as.factor( ord ) )
+      finalDataSet$Var1 <- factor( finalDataSet$Var1, levels= as.factor( ord ) )
 
       p <- ggplot2::ggplot(finalDataSet, ggplot2::aes(Var1, prevalence), order = ord ) +
         ggplot2::geom_bar(ggplot2::aes(fill = variable),
