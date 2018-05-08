@@ -4,7 +4,7 @@
 \alias{beforeAfterASD}
 \title{A new function to analyze if a phenotype is diagnosed before or after ASD}
 \usage{
-beforeAfterASD(input, autismCodes, phenotypeList)
+beforeAfterASD(input, querypatients, autismCodes, phenotypeList)
 }
 \description{
 A new function to analyze if a phenotype is diagnosed before or after ASD

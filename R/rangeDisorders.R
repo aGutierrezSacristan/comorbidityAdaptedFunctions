@@ -3,9 +3,10 @@
 #'
 rangeDisorders <- function( input, sex  ){
 
-  input <- input[ input$SEX_CD == sex, c("PATIENT_NUM","Phenotype") ]
+  input <- bchQueryData@qresult
+  input <- input[ input$patient_sex == sex, c("patient_id","diagnosis_code") ]
   inputNoDuplication <- input[ ! duplicated( input ), ]
-  inputPrevalence<- as.data.frame( table( inputNoDuplication$PATIENT_NUM))
+  inputPrevalence<- as.data.frame( table( inputNoDuplication$patient_id))
 
 
   inputPrevalence$Range <- NA
@@ -32,7 +33,7 @@ rangeDisorders <- function( input, sex  ){
   }
 
   output <- as.data.frame( table( inputPrevalence$Range ) )
-  output$Percentage <- round( output$Freq / length(unique( input$PATIENT_NUM))*100, 2)
+  output$Percentage <- round( output$Freq / length(unique( input$patient_id))*100, 2)
 
   desiredOrder <- c("1", "2", "3", "4", "[5, 10)", "[10, 20)", "[20, 50)", ">= 50")
   output <- output[ order( match( output$Var1, desiredOrder)), ]

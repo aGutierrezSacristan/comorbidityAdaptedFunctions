@@ -4,7 +4,7 @@
 \alias{ageFirstDiagnosis}
 \title{An new function to visualize and analyze the age of the first diagnosis given a list of disorders}
 \usage{
-ageFirstDiagnosis(input, diseaseList, sex, cutOff = 5,
+ageFirstDiagnosis(input, querypatients, diseaseList, sex, cutOff = 5,
   visualization = FALSE, fisherTest = TRUE, fisherCutOff = 0.001)
 }
 \description{

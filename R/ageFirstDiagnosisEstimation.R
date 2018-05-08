@@ -2,8 +2,10 @@
 #' @export ageFirstDiagnosis
 
 
-ageFirstDiagnosis <- function( input, diseaseList, sex, cutOff = 5, visualization = FALSE, fisherTest = TRUE, fisherCutOff = 0.001 ){
+ageFirstDiagnosis <- function( input, querypatients, diseaseList, sex, cutOff = 5, visualization = FALSE, fisherTest = TRUE, fisherCutOff = 0.001 ){
 
+  querypatients <- querypatients@qresult
+  input <- input[ input$PATIENT_NUM %in% querypatients$patient_id, ]
   input <- input[, c("PATIENT_NUM","SEX_CD", "code", "BIRTH_DATE", "START_DATE")]
   input <- input[ input$code %in% diseaseList, ]
   input <- input[ ! duplicated( input ), ]

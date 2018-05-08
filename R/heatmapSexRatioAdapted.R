@@ -5,6 +5,11 @@ heatmapSexRatioAdapted <- function( input, highColor = "blue", lowColor = "red",
 
   input$SR <- as.numeric(input$SR)
 
+  for(cont in 1:nrow(input)){
+    pairDis <- sort(c(input$disA[cont], input$disB[cont]))
+    input$pairs[cont] <- paste(pairDis[1], pairDis[2], sep="*")
+  }
+
   objDuplicated1 <-  input[ , c('disA' ,'disB', 'SR' ,'pairs')]
   objDuplicated2 <-  input[ , c('disB' ,'disA', 'SR' ,'pairs')]
   colnames( objDuplicated2) <- c('disA' ,'disB', 'SR' ,'pairs')

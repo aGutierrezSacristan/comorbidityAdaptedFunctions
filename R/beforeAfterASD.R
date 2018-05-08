@@ -1,9 +1,10 @@
 #' A new function to analyze if a phenotype is diagnosed before or after ASD
 #' @export beforeAfterASD
 
-beforeAfterASD <- function( input, autismCodes, phenotypeList ){
+beforeAfterASD <- function( input, querypatients, autismCodes, phenotypeList ){
 
-
+  querypatients <- querypatients@qresult
+  input <- input[ input$PATIENT_NUM %in% querypatients$patient_id, ]
   asdDAta <- input[ input$code %in% autismIcd9codes, c("PATIENT_NUM", "BIRTH_DATE", "SEX_CD", "Phenotype", "START_DATE") ]
   sortasdData <- asdDAta[order(asdDAta$PATIENT_NUM,asdDAta$START_DATE,decreasing=FALSE),]
   sortasdData <- sortasdData[! duplicated( sortasdData$PATIENT_NUM ), ]
